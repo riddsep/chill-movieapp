@@ -42,7 +42,7 @@ const Login = () => {
             >
               {" "}
               <img
-                src="/assets/icons/google-icon.svg"
+                src="./assets/icons/google-icon.svg"
                 alt=""
                 className="w-4"
               />{" "}
