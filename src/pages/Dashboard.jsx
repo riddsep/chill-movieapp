@@ -10,7 +10,7 @@ const Dashboard = () => {
         />
         <Link to={"/login"}>
           {" "}
-          <button className="bg-red-600 py-1 px-4 rounded-md text-white font-semibold hover:opacity-85">
+          <button className="bg-red-600 py-1 px-4 rounded-md text-white font-semibold hover:opacity-85 hover:ring-2 ring-blue-600">
             Sign in
           </button>
         </Link>
@@ -19,7 +19,7 @@ const Dashboard = () => {
         <h1 className="text-3xl font-extrabold text-white text-center mb-4 md:text-4xl lg:text-5xl">
           Create unforgettable moments. Watch together now!
         </h1>
-        <button className="bg-red-600 py-1 px-4 rounded-md text-white font-semibold hover:opacity-85">
+        <button className="bg-red-600 py-1 px-4 rounded-md text-white font-semibold hover:opacity-85 hover:ring-2 ring-blue-600">
           Get started
         </button>
       </main>
