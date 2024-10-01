@@ -5,7 +5,7 @@ const Input = ({ variant = "primary", className, ...props }) => {
     py-2
     px-3
     border 
-    border-gray-300 
+    border-gray-300/50 
     rounded-2xl
     focus:outline-none 
     focus:ring-2 
