@@ -8,7 +8,7 @@ export default {
       },
       backgroundImage: {
         dashboard:
-          "linear-gradient(to top, rgba(229, 9, 20, 1) 0%, rgba(229, 9, 20, 0) 60%  ) , url('/background-1.jpg')",
+          "linear-gradient(to top, rgba(229, 9, 20, .6) 0%, rgba(229, 9, 20, 0) 60%  ) , url('/background-1.jpg')",
         login: "url('/background-2.jpg')",
       },
     },
