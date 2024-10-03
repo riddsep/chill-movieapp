@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <section className="flex flex-col justify-end gap-3 w-full max-h-[587px] aspect-video bg-hero bg-no-repeat bg-center bg-cover px-5 lg:px-20 pb-10 lg:pb-[73px] ">
+    <section className="flex flex-col justify-end gap-3 w-full max-h-[587px] aspect-video bg-hero bg-no-repeat bg-cover px-5 lg:px-20 pb-10 lg:pb-[73px] ">
       <h1 className="text-2xl md:text-3xl font-bold text-white lg:text-5xl lg:mb-5">
         Duty After School
       </h1>
