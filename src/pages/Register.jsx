@@ -40,7 +40,10 @@ const Register = () => {
           </div>
           <div>
             <div className="relative">
-              <label htmlFor="password" className="text-white lg:text-lg">
+              <label
+                htmlFor="confirm-password"
+                className="text-white lg:text-lg"
+              >
                 Konfirmasi Kata Sandi
               </label>
               <Input

@@ -1,4 +1,5 @@
 import Continues from "../components/Continues";
+import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import NewRelease from "../components/NewRelease";
@@ -14,6 +15,7 @@ const Home = () => {
       <TopRating />
       <Trending />
       <NewRelease />
+      <Footer />
     </>
   );
 };
