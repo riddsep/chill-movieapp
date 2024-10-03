@@ -1,7 +1,9 @@
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const navigate = useNavigate();
   return (
     <section className="min-h-svh w-full flex justify-center items-center bg-dashboard bg-no-repeat bg-center p-6">
       <div className="flex flex-col  items-center justify-center gap-5 lg:gap-6 bg-[#181a1cd7] basis-[529px] p-6 rounded-xl ">
@@ -50,8 +52,8 @@ const Login = () => {
             </p>
           </div>
           <div className="flex flex-col gap-1">
-            <Button variant="secondary">
-              <Link to="/home">Masuk</Link>
+            <Button variant="secondary" onClick={() => navigate("/home")}>
+              Masuk
             </Button>
             <p className="text-[#C1C2C4] text-center text-xs md:text-sm">
               Atau

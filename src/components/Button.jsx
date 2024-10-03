@@ -1,4 +1,10 @@
-const Button = ({ variant = "primary", children, addition, ...props }) => {
+const Button = ({
+  variant = "primary",
+  children,
+  addition,
+  onClick,
+  ...props
+}) => {
   const baseStyle = "py-2 px-3 rounded-2xl font-base transition duration-300";
 
   const variants = {
@@ -9,7 +15,11 @@ const Button = ({ variant = "primary", children, addition, ...props }) => {
   };
 
   return (
-    <button className={`${variants[variant]} ${addition}`} {...props}>
+    <button
+      className={`${variants[variant]} ${addition}`}
+      onClick={onClick}
+      {...props}
+    >
       {children}
     </button>
   );
