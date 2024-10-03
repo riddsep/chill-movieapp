@@ -15,7 +15,7 @@ const Trending = () => {
   return (
     <section className="w-full bg-[#212121] p-5  lg:px-20 lg:py-10 relative">
       <h1 className="text-white text-xl md:text-2xl md:text-[32px] font-bold mb-5 lg:mb-8">
-        Top Rating Film dan Series Hari ini
+        Film Trending
       </h1>
       <Carousel>{TrendingList}</Carousel>
     </section>

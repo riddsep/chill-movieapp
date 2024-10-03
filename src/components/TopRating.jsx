@@ -5,7 +5,7 @@ const TopRating = () => {
   const TopRatingList = dataset.map((data) => {
     return (
       <Fragment key={data.id}>
-        <div className="flex basis-[95px] lg:basis-[234px] lg:min-h-fit shrink-0 relative ">
+        <div className="flex basis-[95px] lg:basis-[234px] lg:min-h-f shrink-0 relative ">
           <img src={data.imageURL} alt="" className="w-full rounded-lg" />
         </div>
       </Fragment>
