@@ -5,7 +5,7 @@ const trendingFilm = [
     rating: 4.0,
     type: "movie",
     episode: null,
-    istopten: false,
+    istopten: true,
     ispremium: false,
     tag: ["Fantasy", "Romance"],
     imageURL: "./assets/trending/film-1.png",
