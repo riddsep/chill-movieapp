@@ -16,12 +16,15 @@ const Dashboard = () => {
         </Link>
       </nav>
       <main className="flex-grow flex flex-col justify-center items-center">
-        <h1 className="text-3xl font-extrabold text-white text-center mb-4 md:text-4xl lg:text-5xl">
+        <h1 className="text-3xl font-extrabold text-white text-center mb-4 md:text-4xl lg:text-5xl md:px-10 lg:px-36">
           Create unforgettable moments. Watch together now!
         </h1>
-        <button className="bg-red-600 py-1 px-4 rounded-md text-white font-semibold hover:opacity-85 hover:ring-2 ring-blue-600">
+        <Link
+          to={"/register"}
+          className="bg-red-600 py-1 px-4 rounded-md text-white font-semibold hover:opacity-85 hover:ring-2 ring-blue-600"
+        >
           Get started
-        </button>
+        </Link>
       </main>
     </section>
   );
