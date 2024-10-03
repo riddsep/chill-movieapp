@@ -7,7 +7,7 @@ const Continues = () => {
       <Fragment key={data.id}>
         <div className="flex basis-[309px] shrink-0 relative">
           <img src={data.imageURL} alt="" className="w-full" />
-          <div className="text-white w-full p-4 text-sm font-semibold flex justify-between items-center absolute bottom-0">
+          <div className="text-white bg-gradient-to-t from-black w-full p-4 text-sm font-semibold flex justify-between items-center absolute bottom-0">
             {data.title}
             <span className="flex items-center gap-1">
               <img src="./assets/icons/star.svg" alt={data.title} />
