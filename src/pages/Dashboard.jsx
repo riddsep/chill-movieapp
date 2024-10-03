@@ -8,7 +8,7 @@ const Dashboard = () => {
           alt="chill movie streaming logo"
           className="min-w-28 sm:min-w-32 md:min-w-36"
         />
-        <Link to={"/login"}>
+        <Link to={"login"}>
           {" "}
           <button className="bg-red-600 py-1 px-4 rounded-md text-white font-semibold hover:opacity-85 hover:ring-2 ring-blue-600">
             Sign in
@@ -20,7 +20,7 @@ const Dashboard = () => {
           Create unforgettable moments. Watch together now!
         </h1>
         <Link
-          to={"/register"}
+          to={"register"}
           className="bg-red-600 py-1 px-4 rounded-md text-white font-semibold hover:opacity-85 hover:ring-2 ring-blue-600"
         >
           Get started
