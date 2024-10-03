@@ -1,5 +1,5 @@
 const Button = ({ variant = "primary", children, addition, ...props }) => {
-  const baseStyle = "py-2 px-4 rounded-2xl font-base transition duration-300";
+  const baseStyle = "py-2 px-3 rounded-2xl font-base transition duration-300";
 
   const variants = {
     primary: `${baseStyle} bg-[#09147A] text-white hover:bg-[#192DB7]`,

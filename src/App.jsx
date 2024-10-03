@@ -1,8 +1,11 @@
-import Routers from "./routes/Routers";
+// import Routers from "./routes/Routers";
+
+import Home from "./pages/Home";
+
 function App() {
   return (
     <>
-      <Routers />
+      <Home />
     </>
   );
 }

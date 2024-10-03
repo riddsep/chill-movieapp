@@ -9,7 +9,7 @@ export default {
       backgroundImage: {
         dashboard:
           "linear-gradient(to top, rgba(229, 9, 20, .7) 0%, rgba(229, 9, 20, 0) 60%  ) , url('/background-1.jpg')",
-        login: "url('/background-2.jpg')",
+        hero: "linear-gradient(to top, rgba(33, 33, 33, 1) 5%, rgba(33, 33, 33, 0)) , url('/hero.png')",
       },
     },
   },
