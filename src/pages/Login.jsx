@@ -50,7 +50,9 @@ const Login = () => {
             </p>
           </div>
           <div className="flex flex-col gap-1">
-            <Button variant="secondary">Masuk</Button>
+            <Button variant="secondary">
+              <Link to="/home">Masuk</Link>
+            </Button>
             <p className="text-[#C1C2C4] text-center text-xs md:text-sm">
               Atau
             </p>

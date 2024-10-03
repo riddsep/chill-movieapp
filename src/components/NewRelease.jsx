@@ -1,11 +1,11 @@
 import Carousel from "./Carousel";
-import dataset from "../data/top-rating.js";
+import dataset from "../data/new-release.js";
 import { Fragment } from "react";
 const NewRelease = () => {
   const NewReleaseList = dataset.map((data) => {
     return (
       <Fragment key={data.id}>
-        <div className="flex basis-[95px] lg:basis-[234px] lg:min-h-fit shrink-0 relative ">
+        <div className="flex basis-[95px] sm:basis-32 md:basis-40 lg:basis-[234px] lg:min-h-fit shrink-0 relative ">
           <img src={data.imageURL} alt="" className="w-full rounded-lg" />
         </div>
       </Fragment>
