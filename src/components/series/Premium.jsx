@@ -1,5 +1,5 @@
 import Carousel from "../Carousel";
-import dataset from "../../data/trending-film.js";
+import dataset from "../../data/new-release.js";
 import { Fragment } from "react";
 import Chip from "../Chip.jsx";
 const Premium = () => {

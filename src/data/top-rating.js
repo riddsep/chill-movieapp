@@ -8,7 +8,7 @@ const topRatingFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Fantasy", "Romance"],
-    imageURL: "./assets/top-rating/film-1.png",
+    imageURL: "/assets/top-rating/film-1.png",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const topRatingFilm = [
     istopten: true,
     ispremium: false,
     tag: ["Animals", "Action", "Adventure"],
-    imageURL: "./assets/top-rating/film-2.png",
+    imageURL: "/assets/top-rating/film-2.png",
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const topRatingFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Crime", "Adventure"],
-    imageURL: "./assets/top-rating/film-3.png",
+    imageURL: "/assets/top-rating/film-3.png",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const topRatingFilm = [
     istopten: true,
     ispremium: true,
     tag: ["Action", "Superhero", "Robotics"],
-    imageURL: "./assets/top-rating/film-4.png",
+    imageURL: "/assets/top-rating/film-4.png",
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const topRatingFilm = [
     istopten: false,
     ispremium: true,
     tag: ["Thriller", "Crime", "Violence"],
-    imageURL: "./assets/top-rating/film-5.png",
+    imageURL: "/assets/top-rating/film-5.png",
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ const topRatingFilm = [
     istopten: true,
     ispremium: true,
     tag: ["Multiverse", "Mystical Arts", "Supernatural"],
-    imageURL: "./assets/top-rating/film-6.png",
+    imageURL: "/assets/top-rating/film-6.png",
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ const topRatingFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Comedy", "Emotional"],
-    imageURL: "./assets/top-rating/film-7.png",
+    imageURL: "/assets/top-rating/film-7.png",
   },
   {
     id: 8,
@@ -85,7 +85,7 @@ const topRatingFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Fantasy", "Romance", "Crime"],
-    imageURL: "./assets/top-rating/film-8.png",
+    imageURL: "/assets/top-rating/film-8.png",
   },
   {
     id: 9,
@@ -96,7 +96,7 @@ const topRatingFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Comedy", "Anime"],
-    imageURL: "./assets/top-rating/film-9.png",
+    imageURL: "/assets/top-rating/film-9.png",
   },
   {
     id: 10,
@@ -107,7 +107,7 @@ const topRatingFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Crime", "Action"],
-    imageURL: "./assets/top-rating/film-10.png",
+    imageURL: "/assets/top-rating/film-10.png",
   },
 ];
 export default topRatingFilm;

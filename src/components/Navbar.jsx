@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center bg-[#212121] w-full text-white p-4 md:py-6  md:px-6 lg:px-20 relative">
       <ul className="flex items-center gap-3 text-sm md:text-base md:gap-6 lg:gap-20">
-        <li>
+        <Link to={""}>
           <img
             src="./assets/icons/logo-small.svg"
             alt=""
@@ -15,7 +15,7 @@ const Navbar = () => {
             alt=""
             className="min-w-10 hidden md:block lg:min-w-32"
           />
-        </li>
+        </Link>
         <Link to={"series"} className="cursor-pointer">
           Series
         </Link>

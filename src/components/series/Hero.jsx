@@ -17,7 +17,7 @@ const Hero = () => {
           </button>
           <button className="flex gap-1 items-center py-1 lg:py-2 px-3 lg:px-6 text-white text-xs lg:text-base bg-[#22282A] rounded-[48px]">
             <img
-              src="./assets/icons/information-outline.svg"
+              src="/assets/icons/information-outline.svg"
               alt="information icon"
               className="w-3 lg:w-5"
             />{" "}
@@ -28,7 +28,7 @@ const Hero = () => {
           </span>
         </div>
         <button className="flex items-center gap-1 lg:scale-150 text-white border border-white p-[6px] rounded-[24px]">
-          <img src="./assets/icons/sound.svg" alt="sound icon" />
+          <img src="/assets/icons/sound.svg" alt="sound icon" />
         </button>
       </div>
     </section>
