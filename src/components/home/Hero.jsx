@@ -19,6 +19,8 @@ const Hero = () => {
             <img
               src="./assets/icons/information-outline.svg"
               alt="information icon"
+              loading="lazy"
+              decoding="async"
               className="w-3 lg:w-5"
             />{" "}
             Selengkapnya
