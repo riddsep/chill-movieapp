@@ -2,7 +2,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import Home from "../pages/Home";
+import Home from "../layout/Home";
+import HomeContainer from "../pages/HomeContainer";
+import MyList from "../components/MyList";
+import Series from "../layout/Series";
+import Film from "../layout/Film";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +26,25 @@ const router = createBrowserRouter([
       },
       {
         path: "home",
-        element: <Home />,
+        element: <HomeContainer />,
+        children: [
+          {
+            index: true,
+            element: <Home />,
+          },
+          {
+            path: "mylist",
+            element: <MyList />,
+          },
+          {
+            path: "series",
+            element: <Series />,
+          },
+          {
+            path: "film",
+            element: <Film />,
+          },
+        ],
       },
     ],
   },
