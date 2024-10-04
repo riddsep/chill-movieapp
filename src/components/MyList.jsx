@@ -2,11 +2,11 @@ import dataset from "../data/new-release.js";
 const MyList = () => {
   const myFilm = dataset.map((data) => {
     return (
-      <div className="w-full" key={data.id}>
+      <div className="w-full h-[160px] md:h-56 lg:h-72" key={data.id}>
         <img
           src={data.imageURL}
           alt={data.title}
-          className="w-full text-white"
+          className="w-full h-full object-cover object-center rounded text-white"
         />
       </div>
     );
@@ -16,7 +16,9 @@ const MyList = () => {
       <h1 className="text-white text-xl mb-4 lg:text-3xl font-bold">
         Daftar Saya
       </h1>
-      <div className="grid grid-cols-3 gap-4">{myFilm}</div>
+      <div className="grid grid-cols-3 gap-4 md:grid-cols-4 lg:grid-cols-6">
+        {myFilm}
+      </div>
     </section>
   );
 };

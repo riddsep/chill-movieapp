@@ -8,9 +8,9 @@ const Footer = () => {
     <footer className="w-full flex flex-col lg:justify-between lg:flex-row bg-[#212121] p-5 lg:px-20 lg:py-[60px] gap-10 border-t">
       <div className="text-[#C1C2C4] text-xs md:text-base">
         <img
-          src="./assets/icons/logo.svg"
+          src="/assets/icons/logo.svg"
           alt="logo icon"
-          className="mb-3 w-[163px]"
+          className="mb-3 lg:w-[163px]"
         />
         @2023 Chill All Rights Reserved.
       </div>
@@ -22,7 +22,7 @@ const Footer = () => {
           >
             Genre{" "}
             <img
-              src="./assets/icons/drop-icon.svg"
+              src="/assets/icons/drop-icon.svg"
               alt=""
               className="lg:hidden"
             />
@@ -65,7 +65,7 @@ const Footer = () => {
           >
             Bantuan{" "}
             <img
-              src="./assets/icons/drop-icon.svg"
+              src="/assets/icons/drop-icon.svg"
               alt=""
               className="lg:hidden"
             />

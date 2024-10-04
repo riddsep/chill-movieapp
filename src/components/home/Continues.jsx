@@ -10,7 +10,7 @@ const Continues = () => {
           <div className="text-white bg-gradient-to-t from-black rounded-lg w-full p-4 text-sm font-semibold flex justify-between items-center absolute bottom-0">
             {data.title}
             <span className="flex items-center gap-1">
-              <img src="./assets/icons/star.svg" alt={data.title} />
+              <img src="/assets/icons/star.svg" alt={data.title} />
               {data.rating.toFixed(1)}/5
             </span>
           </div>

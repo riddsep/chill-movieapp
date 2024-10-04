@@ -6,12 +6,12 @@ const Navbar = () => {
       <ul className="flex items-center gap-3 text-sm md:text-base md:gap-6 lg:gap-20">
         <Link to={""}>
           <img
-            src="./assets/icons/logo-small.svg"
+            src="/assets/icons/logo-small.svg"
             alt=""
             className="min-w-10 md:hidden"
           />
           <img
-            src="./assets/icons/logo.svg"
+            src="/assets/icons/logo.svg"
             alt=""
             className="min-w-10 hidden md:block lg:min-w-32"
           />
@@ -28,12 +28,12 @@ const Navbar = () => {
       </ul>
       <div className="flex items-center gap-2 cursor-pointer group py-2">
         <img
-          src="./assets/icons/profile.svg"
+          src="/assets/icons/profile.svg"
           alt="profile image"
           className="w-8 lg:min-w-11"
         />
         <img
-          src="./assets/icons/dropdown.svg"
+          src="/assets/icons/dropdown.svg"
           alt=""
           className="w-3 group-hover:rotate-180 transition-all"
         />
