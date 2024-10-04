@@ -20,14 +20,14 @@ export const Carousel = ({ children }) => {
           className="embla__prev hidden lg:flex absolute -left-[2%] -translate-y-1/2 top-1/2"
           onClick={scrollPrev}
         >
-          <img src="./assets/icons/arrow-left.svg" alt="" />
+          <img src="/assets/icons/arrow-left.svg" alt="" />
         </button>
       </div>
       <button
         className="embla__next hidden lg:flex absolute -right-[2%] -translate-y-1/2 top-1/2"
         onClick={scrollNext}
       >
-        <img src="./assets/icons/arrow-right.svg" alt="" />
+        <img src="/assets/icons/arrow-right.svg" alt="" />
       </button>
     </div>
   );

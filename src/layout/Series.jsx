@@ -11,8 +11,8 @@ const Series = () => {
       <Hero />
       <Continues />
       <Premium />
-      <Trending />
       <TopRating />
+      <Trending />
       <NewRelease />
     </>
   );
