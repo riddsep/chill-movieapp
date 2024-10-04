@@ -1,4 +1,6 @@
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <nav className="flex justify-between items-center bg-[#212121] w-full text-white p-4 md:py-6  md:px-6 lg:px-20 relative">
       <ul className="flex items-center gap-3 text-sm md:text-base md:gap-6 lg:gap-20">
@@ -14,9 +16,15 @@ const Navbar = () => {
             className="min-w-10 hidden md:block lg:min-w-32"
           />
         </li>
-        <li className="cursor-pointer">Series</li>
-        <li className="cursor-pointer">Film</li>
-        <li className="cursor-pointer">Daftar Saya</li>
+        <Link to={"series"} className="cursor-pointer">
+          Series
+        </Link>
+        <Link to={"film"} className="cursor-pointer">
+          Film
+        </Link>
+        <Link to={"mylist"} className="cursor-pointer">
+          Daftar Saya
+        </Link>
       </ul>
       <div className="flex items-center gap-2 cursor-pointer group py-2">
         <img
@@ -49,7 +57,12 @@ const Navbar = () => {
             </svg>
             Ubah Premium
           </li>
-          <li className="flex items-center gap-2 px-3 py-2 hover:text-blue-600">
+          <li
+            className="flex items-center gap-2 px-3 py-2 hover:text-blue-600"
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
             <svg
               className="w-5 h-5 lg:w-6 lg:h-6 fill-current "
               viewBox="0 0 16 16"

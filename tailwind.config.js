@@ -10,6 +10,10 @@ export default {
         dashboard:
           "linear-gradient(to top, rgba(229, 9, 20, .7) 0%, rgba(229, 9, 20, 0) 60%  ) , url('/background-1.jpg')",
         hero: "linear-gradient(to top, rgba(33, 33, 33, 1) 5%, rgba(33, 33, 33, 0)) , url('/hero.png')",
+        heroseries:
+          "linear-gradient(to top, rgba(33, 33, 33, 1) 5%, rgba(33, 33, 33, 0)) , url('/hero-2.png')",
+        herofilm:
+          "linear-gradient(to top, rgba(33, 33, 33, 1) 5%, rgba(33, 33, 33, 0)) , url('/hero-3.png')",
       },
     },
   },

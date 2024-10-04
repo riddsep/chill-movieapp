@@ -27,12 +27,12 @@ const Login = () => {
           </div>
           <div>
             <div className="relative">
-              <label htmlFor="email" className="text-white lg:text-lg">
+              <label htmlFor="password" className="text-white lg:text-lg">
                 Kata Sandi
               </label>
               <Input
-                id="email"
-                type="email"
+                id="password"
+                type="password"
                 placeholder="Masukkan kata sandi"
               />
               <img
