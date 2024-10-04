@@ -9,7 +9,8 @@ const TopRating = () => {
         <div className=" flex basis-[95px] sm:basis-32 md:basis-40 lg:basis-[234px] lg:min-h-f shrink-0 relative overflow-hidden">
           <img
             src={data.imageURL}
-            alt=""
+            alt={data.title}
+            loading="lazy"
             className="w-full rounded-sm hover:scale-105 transition-all"
           />
           {data.episode > 0 && <Chip variant={"newEpisode"}>Episode Baru</Chip>}

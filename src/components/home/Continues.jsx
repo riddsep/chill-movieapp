@@ -6,7 +6,12 @@ const Continues = () => {
     return (
       <Fragment key={data.id}>
         <div className="flex basis-[309px] lg:basis-[326px] shrink-0 relative ">
-          <img src={data.imageURL} alt="" className="w-full rounded-lg" />
+          <img
+            src={data.imageURL}
+            alt=""
+            className="w-full rounded-lg"
+            loading="eager"
+          />
           <div className="text-white bg-gradient-to-t from-black rounded-lg w-full p-4 text-sm font-semibold flex justify-between items-center absolute bottom-0">
             {data.title}
             <span className="flex items-center gap-1">
