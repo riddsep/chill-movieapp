@@ -8,7 +8,7 @@ const continuesFilm = [
     istopten: true,
     ispremium: true,
     tag: ["Comedy", "Action", "Adventure"],
-    imageURL: "./assets/continues/film-1.png",
+    imageURL: "/assets/continues/film-1.png",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const continuesFilm = [
     istopten: true,
     ispremium: false,
     tag: ["Anime", "Action", "Shounen"],
-    imageURL: "./assets/continues/film-2.png",
+    imageURL: "/assets/continues/film-2.png",
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const continuesFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Romance", "Drama"],
-    imageURL: "./assets/continues/film-3.png",
+    imageURL: "/assets/continues/film-3.png",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const continuesFilm = [
     istopten: true,
     ispremium: true,
     tag: ["Action", "Superhero", "Robotics"],
-    imageURL: "./assets/continues/film-4.png",
+    imageURL: "/assets/continues/film-4.png",
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const continuesFilm = [
     istopten: false,
     ispremium: true,
     tag: ["Thriller", "Crime", "Violence"],
-    imageURL: "./assets/continues/film-5.png",
+    imageURL: "/assets/continues/film-5.png",
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ const continuesFilm = [
     istopten: true,
     ispremium: true,
     tag: ["Multiverse", "Mystical Arts", "Supernatural"],
-    imageURL: "./assets/continues/film-6.png",
+    imageURL: "/assets/continues/film-6.png",
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ const continuesFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Comedy", "Emotional"],
-    imageURL: "./assets/continues/film-7.png",
+    imageURL: "/assets/continues/film-7.png",
   },
   {
     id: 8,
@@ -85,7 +85,7 @@ const continuesFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Fantasy", "Romance"],
-    imageURL: "./assets/continues/film-8.png",
+    imageURL: "/assets/continues/film-8.png",
   },
   {
     id: 9,
@@ -96,7 +96,7 @@ const continuesFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Comedy", "Sports"],
-    imageURL: "./assets/continues/film-9.png",
+    imageURL: "/assets/continues/film-9.png",
   },
   {
     id: 10,
@@ -107,7 +107,7 @@ const continuesFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Crime", "Action"],
-    imageURL: "./assets/continues/film-10.png",
+    imageURL: "/assets/continues/film-10.png",
   },
 ];
 export default continuesFilm;

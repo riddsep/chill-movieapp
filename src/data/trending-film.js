@@ -8,7 +8,7 @@ const trendingFilm = [
     istopten: true,
     ispremium: false,
     tag: ["Fantasy", "Romance"],
-    imageURL: "./assets/trending/film-1.png",
+    imageURL: "/assets/trending/film-1.png",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const trendingFilm = [
     istopten: true,
     ispremium: false,
     tag: ["Animals", "Action", "Adventure"],
-    imageURL: "./assets/trending/film-2.png",
+    imageURL: "/assets/trending/film-2.png",
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const trendingFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Crime", "Adventure"],
-    imageURL: "./assets/trending/film-3.png",
+    imageURL: "/assets/trending/film-3.png",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const trendingFilm = [
     istopten: true,
     ispremium: true,
     tag: ["Action", "Superhero", "Robotics"],
-    imageURL: "./assets/trending/film-4.png",
+    imageURL: "/assets/trending/film-4.png",
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const trendingFilm = [
     istopten: false,
     ispremium: true,
     tag: ["Thriller", "Crime", "Violence"],
-    imageURL: "./assets/trending/film-5.png",
+    imageURL: "/assets/trending/film-5.png",
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ const trendingFilm = [
     istopten: true,
     ispremium: true,
     tag: ["Multiverse", "Mystical Arts", "Supernatural"],
-    imageURL: "./assets/trending/film-6.png",
+    imageURL: "/assets/trending/film-6.png",
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ const trendingFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Comedy", "Emotional"],
-    imageURL: "./assets/trending/film-7.png",
+    imageURL: "/assets/trending/film-7.png",
   },
   {
     id: 8,
@@ -85,7 +85,7 @@ const trendingFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Fantasy", "Romance", "Crime"],
-    imageURL: "./assets/trending/film-8.png",
+    imageURL: "/assets/trending/film-8.png",
   },
   {
     id: 9,
@@ -96,7 +96,7 @@ const trendingFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Comedy", "Anime"],
-    imageURL: "./assets/trending/film-9.png",
+    imageURL: "/assets/trending/film-9.png",
   },
   {
     id: 10,
@@ -107,7 +107,7 @@ const trendingFilm = [
     istopten: false,
     ispremium: false,
     tag: ["Crime", "Action"],
-    imageURL: "./assets/trending/film-10.png",
+    imageURL: "/assets/trending/film-10.png",
   },
 ];
 export default trendingFilm;
