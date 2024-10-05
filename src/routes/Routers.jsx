@@ -7,6 +7,7 @@ import HomeContainer from "../pages/HomeContainer";
 import MyList from "../components/MyList";
 import Series from "../layout/Series";
 import Film from "../layout/Film";
+import Profile from "../components/Profile";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
           {
             path: "film",
             element: <Film />,
+          },
+          {
+            path: "profile",
+            element: <Profile />,
           },
         ],
       },

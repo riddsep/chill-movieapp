@@ -39,7 +39,10 @@ const Navbar = () => {
         />
 
         <ul className="absolute bg-[#181a1c] text-sm md:text-base text-white p-3 top-[70%]  right-[2%] lg:right-[4%] rounded invisible group-hover:visible drop-shadow-xl">
-          <li className="flex items-center gap-2 px-3 py-2 hover:text-blue-600  ">
+          <Link
+            to={"profile"}
+            className="flex items-center gap-2 px-3 py-2 hover:text-blue-600  "
+          >
             <svg
               className="w-5 h-5 lg:w-6 lg:h-6 fill-current "
               viewBox="0 0 16 16"
@@ -47,7 +50,7 @@ const Navbar = () => {
               <path d="M7.9998 2.6667a2.6667 2.6667 0 1 1 0 5.3334 2.6667 2.6667 0 0 1 0-5.3333Zm0 6.6667c2.9467 0 5.3334 1.1933 5.3334 2.6667v1.3333H2.6665v-1.3333c0-1.4734 2.3867-2.6667 5.3333-2.6667Z" />
             </svg>
             Profile Saya
-          </li>
+          </Link>
           <li className="flex items-center gap-2 px-3 py-2 hover:text-blue-600 ">
             <svg
               className="w-5 h-5 lg:w-6 lg:h-6 fill-current "
