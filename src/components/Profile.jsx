@@ -24,7 +24,10 @@ const Profile = () => {
               </div>
             </div>
             <div className="flex justify-end">
-              <Button variant="secondaryOutline" addition={"text-xs font-bold"}>
+              <Button
+                variant="secondaryOutline"
+                addition={"text-xs lg:text-base font-bold"}
+              >
                 Mulai Berlangganan
               </Button>
             </div>
