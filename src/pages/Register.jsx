@@ -1,28 +1,42 @@
 import Input from "../components/Input";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Swal from "sweetalert2";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [user, setUser] = useState([]);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(user));
-  }, [user]);
   const handlerSubmit = (e) => {
     e.preventDefault();
     if (!username || !password || !confirmPassword) {
       return setError("Form nya di isi dulu bray!");
     }
+    if (password.length < 8) {
+      return setError("Password nya minimal 8 karakter bray!");
+    }
 
-    setUser([...user, { username, password }]);
+    if (password !== confirmPassword) {
+      return setError("Password nya ga cocok bray!");
+    }
+
+    const users = JSON.parse(localStorage.getItem("user")) || [];
+    const isEmailRegistered = users.some((user) => user.username === username);
+
+    if (isEmailRegistered) {
+      return setError("Pake email lain bray");
+    }
+
+    const newUser = [...users, { username, password }];
+
+    localStorage.setItem("user", JSON.stringify(newUser));
+    navigate("/login");
 
     Swal.fire({
       html: "Account created successfully!",
@@ -31,7 +45,6 @@ const Register = () => {
       showConfirmButton: false,
       position: "top",
       width: 300,
-      toast: true,
     });
 
     setUsername("");
