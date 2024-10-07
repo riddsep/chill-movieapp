@@ -24,7 +24,7 @@ const Login = () => {
         timer: 1500,
         timerProgressBar: true,
         showConfirmButton: false,
-        position: "top-right",
+        position: "top",
         width: 300,
       });
     }
@@ -34,7 +34,7 @@ const Login = () => {
         timer: 1500,
         timerProgressBar: true,
         showConfirmButton: false,
-        position: "top-right",
+        position: "top",
         width: 300,
       });
     }
@@ -44,7 +44,7 @@ const Login = () => {
       timer: 1500,
       timerProgressBar: true,
       showConfirmButton: false,
-      position: "top-right",
+      position: "top",
       width: 300,
     });
 
