@@ -2,6 +2,8 @@ import Button from "./Button";
 import MyList from "./MyList";
 
 const Profile = () => {
+  const userData = JSON.parse(localStorage.getItem("currentUser"));
+  console.log(userData);
   return (
     <>
       <section className="bg-[#212121] p-5 lg:py-10 lg:px-20">
@@ -85,7 +87,7 @@ const Profile = () => {
                 <input
                   type="email"
                   id="email"
-                  value="Ridoseptiawan@gmail.com"
+                  value={userData.username}
                   disabled
                   className="w-full bg-[#22282A] text-white text-base border border-gray-500/50 rounded px-4 pt-5 pb-2"
                 />
@@ -100,7 +102,7 @@ const Profile = () => {
                 <input
                   type="password"
                   id="password"
-                  value="Ridoganteng12"
+                  value={userData.password}
                   disabled
                   className="w-full bg-[#22282A] text-white text-base border border-gray-500/50 rounded px-4 pt-5 pb-2"
                 />
