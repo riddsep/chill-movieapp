@@ -30,7 +30,7 @@ const Register = () => {
     const isEmailRegistered = users.some((user) => user.username === username);
 
     if (isEmailRegistered) {
-      return setError("Pake email lain bray");
+      return setError("Email sudah terdaftar bray");
     }
 
     const newUser = [...users, { username, password }];
