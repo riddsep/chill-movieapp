@@ -3,7 +3,6 @@ import MyList from "./MyList";
 
 const Profile = () => {
   const userData = JSON.parse(localStorage.getItem("currentUser"));
-  console.log(userData);
   return (
     <>
       <section className="bg-[#212121] p-5 lg:py-10 lg:px-20">
