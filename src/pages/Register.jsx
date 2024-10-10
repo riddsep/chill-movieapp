@@ -19,11 +19,11 @@ const Register = () => {
       return setError("Form nya di isi dulu bray!");
     }
     if (password.length < 8) {
-      return setError("Password nya minimal 8 karakter bray!");
+      return setError("Password minimal 8 karakter bray!");
     }
 
     if (password !== confirmPassword) {
-      return setError("Password nya ga cocok bray!");
+      return setError("Password ga cocok bray!");
     }
 
     const users = JSON.parse(localStorage.getItem("user")) || [];
