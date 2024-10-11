@@ -4,7 +4,9 @@ const AdminPanel = () => {
     <section>
       <header className="shadow-md">
         <nav className="w-3/4 mx-auto flex justify-between items-center py-5 ">
-          <h1 className="text-3xl font-bold">Chill</h1>
+          <h1 className="text-3xl font-bold">
+            Chill <span>Movie</span>
+          </h1>
           <ul className="flex items-center gap-4 font-medium ">
             <li className="hover:text-red-500 cursor-pointer">Home</li>
             <li className="bg-red-500 hover:bg-red-400 rounded-md px-2 py-1 text-white cursor-pointer">
