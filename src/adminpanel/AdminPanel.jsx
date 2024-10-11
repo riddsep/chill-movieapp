@@ -1,14 +1,17 @@
 const AdminPanel = () => {
+  console.log("admin panel");
   return (
     <section>
-      <header className="flex justify-around items-center p-4 shadow-md">
-        <h1 className="text-3xl font-bold">Chill</h1>
-        <ul className="flex items-center gap-4 font-medium ">
-          <li className="hover:text-red-500 cursor-pointer">Home</li>
-          <li className="bg-red-500 hover:bg-red-400 rounded-md px-2 py-1 text-white cursor-pointer">
-            Logout
-          </li>
-        </ul>
+      <header className="shadow-md">
+        <nav className="w-3/4 mx-auto flex justify-between items-center py-5 ">
+          <h1 className="text-3xl font-bold">Chill</h1>
+          <ul className="flex items-center gap-4 font-medium ">
+            <li className="hover:text-red-500 cursor-pointer">Home</li>
+            <li className="bg-red-500 hover:bg-red-400 rounded-md px-2 py-1 text-white cursor-pointer">
+              Logout
+            </li>
+          </ul>
+        </nav>
       </header>
       <div>
         <h1 className="text-3xl font-bold text-center my-4">
@@ -16,7 +19,7 @@ const AdminPanel = () => {
         </h1>
         <div className="w-3/4 mx-auto flex justify-end mb-2">
           <button className="flex items-center gap-2 bg-red-500 hover:bg-red-400 text-white px-4 py-2 rounded-md">
-            Add Product <img src="assets/icons/file-plus.svg" alt="" />
+            Add Product <img src="assets/icons/file-plus.svg" alt="file plus" />
           </button>
         </div>
         <table className="table-auto border-collapse shadow-md text-center w-3/4 mx-auto">
