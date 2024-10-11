@@ -21,7 +21,7 @@ const AdminPanel = () => {
         </h1>
         <div className="w-3/4 mx-auto flex justify-end mb-2">
           <button className="flex items-center gap-2 bg-red-500 hover:bg-red-400 text-white px-4 py-2 rounded-md">
-            Add Product <img src="assets/icons/file-plus.svg" alt="file plus" />
+            Add Film <img src="assets/icons/file-plus.svg" alt="file plus" />
           </button>
         </div>
         <form className="w-3/4 mx-auto my-5 flex flex-col items-center">
@@ -77,6 +77,22 @@ const AdminPanel = () => {
               <td className="p-3">Movie</td>
               <td className="p-3 font-bold">-</td>
               <td className="p-3 ">Multiverse, Mystical Arts, Supernatural</td>
+              <td className="p-3 ">
+                <button>
+                  <img
+                    src="assets/icons/pencil-1.svg"
+                    alt=""
+                    className="border border-black text-white p-2 rounded mr-2 "
+                  />
+                </button>
+                <button>
+                  <img
+                    src="assets/icons/trash.svg"
+                    alt=""
+                    className="border border-black text-white p-2 rounded mr-2 "
+                  />
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
