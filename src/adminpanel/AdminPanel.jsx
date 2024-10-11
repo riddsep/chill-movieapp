@@ -22,6 +22,41 @@ const AdminPanel = () => {
             Add Product <img src="assets/icons/file-plus.svg" alt="file plus" />
           </button>
         </div>
+        <form className="w-3/4 mx-auto my-5 flex flex-col items-center">
+          <fieldset className="flex flex-col gap-2 w-96">
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              name="title"
+              placeholder="Masukkan title film"
+              className="border border-gray-300 rounded-md p-2"
+            />
+            <label htmlFor="type">Type</label>
+            <input
+              type="text"
+              name="type"
+              placeholder="Masukkan tipe film"
+              className="border border-gray-300 rounded-md p-2"
+            />
+            <label htmlFor="episode">Episode</label>
+            <input
+              type="text"
+              name="type"
+              placeholder="Masukkan episode film"
+              className="border border-gray-300 rounded-md p-2"
+            />
+            <label htmlFor="tag">Tag</label>
+            <input
+              type="text"
+              name="tag"
+              placeholder="Masukkan tag film"
+              className="border border-gray-300 rounded-md p-2"
+            />
+            <button className="text-center bg-red-500 hover:bg-red-400 text-white p-2 mt-2 rounded-md">
+              Add Film
+            </button>
+          </fieldset>
+        </form>
         <table className="table-auto border-collapse shadow-md text-center w-3/4 mx-auto">
           <thead>
             <tr className="bg-zinc-100">
