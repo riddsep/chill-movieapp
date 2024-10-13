@@ -16,3 +16,12 @@ export const getMovies = async () => {
     console.error(error);
   }
 };
+
+export const insertMovie = async (data) => {
+  try {
+    const response = await axios.post(ChillMoviesEndpoint.INSERT, data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
