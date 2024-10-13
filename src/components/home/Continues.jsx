@@ -10,7 +10,7 @@ const Continues = () => {
             src={data.imageURL}
             alt=""
             className="w-full rounded-lg"
-            loading="eager"
+            loading="lazy"
           />
           <div className="text-white bg-gradient-to-t from-black rounded-lg w-full p-4 text-sm font-semibold flex justify-between items-center absolute bottom-0">
             {data.title}
