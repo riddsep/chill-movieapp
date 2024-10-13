@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getMovies } from "../services/api/movies-api-endpoints";
+import { getMovies, insertMovie } from "../services/api/movies-api-endpoints";
 
 const AdminPanel = () => {
   const [add, setAdd] = useState(false);
@@ -7,6 +7,7 @@ const AdminPanel = () => {
     title: "",
     type: "",
     episode: 0,
+    premium: "",
     tag: "",
   });
 
@@ -21,16 +22,28 @@ const AdminPanel = () => {
     }));
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    const movieData = {
+      ...formData,
+      episode: formData.episode === 0 ? null : formData.episode,
+      premium: formData.premium === "true",
+      tag: formData.tag.split(",").map((tag) => tag.trim()),
+    };
+    console.log(movieData);
+    await insertMovie(movieData);
+    await fetchMovies();
+    const result = await getMovies();
+    console.log(result);
   }
+
+  async function fetchMovies() {
+    const result = await getMovies();
+    setMoviesData(result);
+    setLoading(false);
+  }
+
   useEffect(() => {
-    async function fetchMovies() {
-      const result = await getMovies();
-      console.log(result);
-      setMoviesData(result);
-      setLoading(false);
-    }
     fetchMovies();
   }, []);
 
@@ -99,6 +112,16 @@ const AdminPanel = () => {
                 value={formData.episode}
                 onChange={handleChange}
               />
+              <label htmlFor="premium">Premium</label>
+              <input
+                type="text"
+                name="premium"
+                id="premium"
+                placeholder="Masukkan episode film"
+                className="border border-gray-300 rounded-md p-2"
+                value={formData.premium}
+                onChange={handleChange}
+              />
               <label htmlFor="tag">Tag</label>
               <input
                 type="text"
@@ -144,7 +167,7 @@ const AdminPanel = () => {
                   </td>
                   <td className="p-3">{movie.premium ? "Premium" : "-"}</td>
                   <td className="p-3">{movie.rating}</td>
-                  <td className="p-3">{movie.tag.join(", ")}</td>
+                  <td className="p-3">{movie.tag}</td>
                   <td className="p-3">{movie.image}</td>
                   <td className="p-3">
                     <div className="flex items-start">
