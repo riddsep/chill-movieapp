@@ -167,7 +167,7 @@ const AdminPanel = () => {
                   </td>
                   <td className="p-3">{movie.premium ? "Premium" : "-"}</td>
                   <td className="p-3">{movie.rating}</td>
-                  <td className="p-3">{movie.tag}</td>
+                  <td className="p-3">{movie.tag.join(", ")}</td>
                   <td className="p-3">{movie.image}</td>
                   <td className="p-3">
                     <div className="flex items-start">
