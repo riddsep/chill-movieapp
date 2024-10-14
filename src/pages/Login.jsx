@@ -17,6 +17,17 @@ const Login = () => {
     const findUser = userData.find(
       (user) => user.username === username && user.password === password
     );
+    if (username === "admin@gmail.com" && password === "admin123") {
+      Swal.fire({
+        html: "Welcome Admin!",
+        timer: 1500,
+        timerProgressBar: true,
+        showConfirmButton: false,
+        position: "top",
+        width: 300,
+      });
+      return navigate("/admin");
+    }
 
     if (!username || !password) {
       return Swal.fire({

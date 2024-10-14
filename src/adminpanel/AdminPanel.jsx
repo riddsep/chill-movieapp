@@ -5,8 +5,10 @@ import {
   deleteMovie,
   updateMovie,
 } from "../services/api/movies-api-endpoints";
+import { useNavigate } from "react-router-dom";
 
 const AdminPanel = () => {
+  const navigate = useNavigate();
   const [add, setAdd] = useState(false);
   const [formData, setFormData] = useState({
     id: null,
@@ -56,8 +58,7 @@ const AdminPanel = () => {
         !formData.title ||
         !formData.type ||
         !formData.tag ||
-        !formData.premium ||
-        !formData.episode
+        !formData.premium
       ) {
         alert("Semua data harus diisi.");
         return;
@@ -120,7 +121,10 @@ const AdminPanel = () => {
           </h1>
           <ul className="flex items-center gap-4 font-medium ">
             <li className="hover:text-red-500 cursor-pointer">Home</li>
-            <li className="bg-red-500 hover:bg-red-400 rounded-md px-2 py-1 text-white cursor-pointer">
+            <li
+              className="bg-red-500 hover:bg-red-400 rounded-md px-2 py-1 text-white cursor-pointer"
+              onClick={() => navigate("/login")}
+            >
               Logout
             </li>
           </ul>
