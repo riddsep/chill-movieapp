@@ -1,5 +1,3 @@
-readme_content = """
-
 # Chill 🎬
 
 **Chill** adalah website streaming film yang menyediakan beragam film dan serial TV untuk ditonton secara online. Website ini dibangun menggunakan **React** untuk pengalaman pengguna yang interaktif dan responsif.
