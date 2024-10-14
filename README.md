@@ -1,8 +1,38 @@
-# React + Vite
+readme_content = """
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Chill 🎬
 
-Currently, two official plugins are available:
+**Chill** adalah website streaming film yang menyediakan beragam film dan serial TV untuk ditonton secara online. Website ini dibangun menggunakan **React** untuk pengalaman pengguna yang interaktif dan responsif.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## Fitur ✨
+
+- **Halaman Beranda**: Menampilkan film dan serial populer.
+- **Pencarian**: Cari film berdasarkan judul.
+- **Kategori Film**: Jelajahi film berdasarkan genre seperti Action, Comedy, dan Romance.
+- **Detail Film**: Lihat informasi lengkap tentang film seperti rating, sinopsis, dan tahun rilis.
+- **Mode Gelap/Terang**: Sesuaikan tampilan dengan tema favorit.
+- **Dashboard Admin**: Kelola data film (CRUD) melalui panel admin.
+
+---
+
+## Teknologi yang Digunakan 🛠️
+
+- **React.js**: Library JavaScript untuk membangun antarmuka pengguna.
+- **React Router**: Untuk navigasi antar halaman.
+- **Axios**: Mengambil data dari API.
+- **Tailwind**: Untuk tampilan responsif dan desain UI.
+- **Firebase** (opsional): Backend untuk autentikasi dan database film.
+
+---
+
+## Cara Instalasi dan Menjalankan 🔧
+
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lokal:
+
+1. **Clone** repository ini:
+   ```bash
+   git clone https://github.com/username/chill.git
+   cd chill
+   ```
