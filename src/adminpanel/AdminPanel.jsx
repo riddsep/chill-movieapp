@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { getMovies, insertMovie } from "../services/api/movies-api-endpoints";
+import {
+  getMovies,
+  insertMovie,
+  deleteMovie,
+} from "../services/api/movies-api-endpoints";
 
 const AdminPanel = () => {
   const [add, setAdd] = useState(false);
@@ -22,25 +26,53 @@ const AdminPanel = () => {
     }));
   }
 
+  async function handleDelete(id) {
+    if (confirm("Are you sure you want to delete this movie?")) {
+      await deleteMovie(id);
+      const macthingItem = moviesData.filter(
+        (movieData) => movieData.id !== id
+      );
+      setMoviesData(macthingItem);
+    }
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
-    const movieData = {
-      ...formData,
-      episode: formData.episode === 0 ? null : formData.episode,
-      premium: formData.premium === "true",
-      tag: formData.tag.split(",").map((tag) => tag.trim()),
-    };
-    console.log(movieData);
-    await insertMovie(movieData);
-    await fetchMovies();
-    const result = await getMovies();
-    console.log(result);
+    try {
+      const movieData = {
+        ...formData,
+        episode: formData.episode === 0 ? null : formData.episode,
+        premium: formData.premium === "true",
+        tag: formData.tag.split(",").map((tag) => tag.trim()),
+      };
+
+      await insertMovie(movieData);
+
+      formData.title = "";
+      formData.type = "";
+      formData.episode = 0;
+      formData.premium = "";
+      formData.tag = "";
+
+      await fetchMovies();
+      alert("Film berhasil ditambahkan.");
+    } catch (error) {
+      console.error("Error adding movie:", error);
+      alert("Gagal menambahkan film. Silakan coba lagi.");
+    }
   }
 
   async function fetchMovies() {
-    const result = await getMovies();
-    setMoviesData(result);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const result = await getMovies();
+      setMoviesData(result);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+      alert("Gagal mengambil data film. Silakan coba lagi nanti.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -183,6 +215,7 @@ const AdminPanel = () => {
                           src="assets/icons/trash.svg"
                           alt=""
                           className="border border-black p-2 rounded hover:bg-red-500 hover:border-red-500"
+                          onClick={() => handleDelete(movie.id)}
                         />
                       </button>
                     </div>
