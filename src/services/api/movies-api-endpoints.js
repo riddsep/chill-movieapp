@@ -4,7 +4,7 @@ const BASE_URL = "https://670b021cac6860a6c2cb0551.mockapi.io/api";
 const ChillMoviesEndpoint = {
   GET_ALL: `${BASE_URL}/chillmovies`,
   INSERT: `${BASE_URL}/chillmovies`,
-  UPDATE: `${BASE_URL}/chillmovies/:id`,
+  UPDATE: `${BASE_URL}/chillmovies`,
   DELETE: `${BASE_URL}/chillmovies`,
 };
 
@@ -29,6 +29,17 @@ export const deleteMovie = async (data) => {
   try {
     const response = await axios.delete(
       `${ChillMoviesEndpoint.DELETE}/${data}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const updateMovie = async (data) => {
+  try {
+    const response = await axios.put(
+      `${ChillMoviesEndpoint.UPDATE}/${data.id}`,
+      data
     );
     return response.data;
   } catch (error) {

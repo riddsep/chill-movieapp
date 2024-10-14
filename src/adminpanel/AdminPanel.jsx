@@ -3,11 +3,13 @@ import {
   getMovies,
   insertMovie,
   deleteMovie,
+  updateMovie,
 } from "../services/api/movies-api-endpoints";
 
 const AdminPanel = () => {
   const [add, setAdd] = useState(false);
   const [formData, setFormData] = useState({
+    id: null,
     title: "",
     type: "",
     episode: 0,
@@ -35,10 +37,32 @@ const AdminPanel = () => {
       setMoviesData(macthingItem);
     }
   }
+  function handleUpdate(movie) {
+    setAdd(true);
+    setFormData({
+      id: movie.id,
+      title: movie.title,
+      type: movie.type,
+      episode: movie.episode === null ? 0 : movie.episode,
+      premium: movie.premium ? "true" : "false",
+      tag: movie.tag.join(", "),
+    });
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
     try {
+      if (
+        !formData.title ||
+        !formData.type ||
+        !formData.tag ||
+        !formData.premium ||
+        !formData.episode
+      ) {
+        alert("Semua data harus diisi.");
+        return;
+      }
+
       const movieData = {
         ...formData,
         episode: formData.episode === 0 ? null : formData.episode,
@@ -46,19 +70,27 @@ const AdminPanel = () => {
         tag: formData.tag.split(",").map((tag) => tag.trim()),
       };
 
-      await insertMovie(movieData);
+      if (formData.id) {
+        await updateMovie(movieData);
+        alert("Film berhasil diperbarui.");
+      } else {
+        await insertMovie(movieData);
+        alert("Film berhasil ditambahkan.");
+      }
 
-      formData.title = "";
-      formData.type = "";
-      formData.episode = 0;
-      formData.premium = "";
-      formData.tag = "";
+      setFormData({
+        id: null,
+        title: "",
+        type: "",
+        episode: 0,
+        premium: "",
+        tag: "",
+      });
 
       await fetchMovies();
-      alert("Film berhasil ditambahkan.");
     } catch (error) {
-      console.error("Error adding movie:", error);
-      alert("Gagal menambahkan film. Silakan coba lagi.");
+      console.error("Error adding or updating movie:", error);
+      alert("Gagal menambahkan atau memperbarui film. Silakan coba lagi.");
     }
   }
 
@@ -144,16 +176,30 @@ const AdminPanel = () => {
                 value={formData.episode}
                 onChange={handleChange}
               />
-              <label htmlFor="premium">Premium</label>
-              <input
-                type="text"
-                name="premium"
-                id="premium"
-                placeholder="Masukkan episode film"
-                className="border border-gray-300 rounded-md p-2"
-                value={formData.premium}
-                onChange={handleChange}
-              />
+              <label>Premium</label>
+              <div className="flex gap-4">
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    name="premium"
+                    value="true"
+                    checked={formData.premium === "true"}
+                    onChange={handleChange}
+                  />
+                  <span className="ml-2">Yes</span>
+                </label>
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    name="premium"
+                    value="false"
+                    checked={formData.premium === "false"}
+                    onChange={handleChange}
+                  />
+                  <span className="ml-2">No</span>
+                </label>
+              </div>
+
               <label htmlFor="tag">Tag</label>
               <input
                 type="text"
@@ -203,19 +249,18 @@ const AdminPanel = () => {
                   <td className="p-3">{movie.image}</td>
                   <td className="p-3">
                     <div className="flex items-start">
-                      <button>
+                      <button onClick={() => handleUpdate(movie)}>
                         <img
                           src="assets/icons/pencil-1.svg"
                           alt=""
                           className="border border-black text-white p-2 rounded mr-2 hover:bg-blue-500 hover:border-blue-500"
                         />
                       </button>
-                      <button>
+                      <button onClick={() => handleDelete(movie.id)}>
                         <img
                           src="assets/icons/trash.svg"
                           alt=""
                           className="border border-black p-2 rounded hover:bg-red-500 hover:border-red-500"
-                          onClick={() => handleDelete(movie.id)}
                         />
                       </button>
                     </div>
