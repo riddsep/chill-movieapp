@@ -24,7 +24,7 @@ const Trending = () => {
             src={data.image}
             alt={data.title}
             loading="lazy"
-            className="w-full rounded-sm hover:scale-105 transition-all object-cover object-center"
+            className="w-full hover:scale-105 transition-all object-cover object-center"
           />
           {data.episode > 0 && <Chip variant={"newEpisode"}>Episode Baru</Chip>}
           {data.rank <= 10 && (
