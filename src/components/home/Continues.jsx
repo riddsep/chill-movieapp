@@ -1,15 +1,28 @@
 import Carousel from "../Carousel";
-import dataset from "../../data/continues-film";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { getMovies } from "../../services/api/movies-api-endpoints";
 const Continues = () => {
-  const filmList = dataset.map((data) => {
+  const [films, setFilms] = useState([]);
+  async function fetchMovies() {
+    try {
+      const result = await getMovies();
+      setFilms(result);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    }
+  }
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+  const filmList = films.map((data) => {
     return (
       <Fragment key={data.id}>
-        <div className="flex basis-[309px] lg:basis-[326px] shrink-0 relative ">
+        <div className="flex basis-[309px] h-40 lg:basis-[326px] shrink-0 relative">
           <img
-            src={data.imageURL}
+            src={data.image}
             alt=""
-            className="w-full rounded-lg"
+            className="w-full rounded-lg object-cover object-center"
             loading="lazy"
           />
           <div className="text-white bg-gradient-to-t from-black rounded-lg w-full p-4 text-sm font-semibold flex justify-between items-center absolute bottom-0">
