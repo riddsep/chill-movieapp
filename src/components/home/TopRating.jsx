@@ -1,20 +1,33 @@
 import Carousel from "../Carousel";
-import dataset from "../../data/top-rating.js";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Chip from "../Chip.jsx";
+import { getMovies } from "../../services/api/movies-api-endpoints.js";
 const TopRating = () => {
-  const TopRatingList = dataset.map((data) => {
+  const [films, setFilms] = useState([]);
+  async function fetchMovies() {
+    try {
+      const result = await getMovies();
+      setFilms(result);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    }
+  }
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+  const TopRatingList = films.map((data) => {
     return (
       <Fragment key={data.id}>
-        <div className=" flex basis-[95px] sm:basis-32 md:basis-40 lg:basis-[234px] lg:min-h-f shrink-0 relative overflow-hidden">
+        <div className=" flex basis-[95px] h-36 sm:basis-32 md:basis-40 lg:basis-[234px] lg:min-h-f shrink-0 relative overflow-hidden">
           <img
-            src={data.imageURL}
+            src={data.image}
             alt={data.title}
             loading="lazy"
-            className="w-full rounded-sm hover:scale-105 transition-all"
+            className="w-full rounded-sm hover:scale-105 transition-all object-cover object-center"
           />
           {data.episode > 0 && <Chip variant={"newEpisode"}>Episode Baru</Chip>}
-          {data.istopten && (
+          {data.rank <= 10 && (
             <Chip variant={"topTen"}>
               Top <span>10</span>
             </Chip>

@@ -18,7 +18,7 @@ const Continues = () => {
   const filmList = films.map((data) => {
     return (
       <Fragment key={data.id}>
-        <div className="flex basis-[309px] h-40 lg:basis-[326px] shrink-0 relative">
+        <div className="flex basis-[309px] h-40 lg:h-48 lg:basis-[326px] shrink-0 relative">
           <img
             src={data.image}
             alt=""
