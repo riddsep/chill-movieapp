@@ -1,9 +1,9 @@
-import AdminPanel from "./adminpanel/AdminPanel";
+import Routers from "./routes/Routers";
 
 function App() {
   return (
     <>
-      <AdminPanel />
+      <Routers />
     </>
   );
 }
