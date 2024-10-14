@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
-import { getMovies, insertMovie } from "../services/api/movies-api-endpoints";
+import {
+  getMovies,
+  insertMovie,
+  deleteMovie,
+  updateMovie,
+} from "../services/api/movies-api-endpoints";
 
 const AdminPanel = () => {
   const [add, setAdd] = useState(false);
   const [formData, setFormData] = useState({
+    id: null,
     title: "",
     type: "",
     episode: 0,
@@ -22,25 +28,83 @@ const AdminPanel = () => {
     }));
   }
 
+  async function handleDelete(id) {
+    if (confirm("Are you sure you want to delete this movie?")) {
+      await deleteMovie(id);
+      const macthingItem = moviesData.filter(
+        (movieData) => movieData.id !== id
+      );
+      setMoviesData(macthingItem);
+    }
+  }
+  function handleUpdate(movie) {
+    setAdd(true);
+    setFormData({
+      id: movie.id,
+      title: movie.title,
+      type: movie.type,
+      episode: movie.episode === null ? 0 : movie.episode,
+      premium: movie.premium ? "true" : "false",
+      tag: movie.tag.join(", "),
+    });
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
-    const movieData = {
-      ...formData,
-      episode: formData.episode === 0 ? null : formData.episode,
-      premium: formData.premium === "true",
-      tag: formData.tag.split(",").map((tag) => tag.trim()),
-    };
-    console.log(movieData);
-    await insertMovie(movieData);
-    await fetchMovies();
-    const result = await getMovies();
-    console.log(result);
+    try {
+      if (
+        !formData.title ||
+        !formData.type ||
+        !formData.tag ||
+        !formData.premium ||
+        !formData.episode
+      ) {
+        alert("Semua data harus diisi.");
+        return;
+      }
+
+      const movieData = {
+        ...formData,
+        episode: formData.episode === 0 ? null : formData.episode,
+        premium: formData.premium === "true",
+        tag: formData.tag.split(",").map((tag) => tag.trim()),
+      };
+
+      if (formData.id) {
+        await updateMovie(movieData);
+        alert("Film berhasil diperbarui.");
+      } else {
+        await insertMovie(movieData);
+        alert("Film berhasil ditambahkan.");
+      }
+
+      setFormData({
+        id: null,
+        title: "",
+        type: "",
+        episode: 0,
+        premium: "",
+        tag: "",
+      });
+
+      await fetchMovies();
+    } catch (error) {
+      console.error("Error adding or updating movie:", error);
+      alert("Gagal menambahkan atau memperbarui film. Silakan coba lagi.");
+    }
   }
 
   async function fetchMovies() {
-    const result = await getMovies();
-    setMoviesData(result);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const result = await getMovies();
+      setMoviesData(result);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+      alert("Gagal mengambil data film. Silakan coba lagi nanti.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -112,16 +176,30 @@ const AdminPanel = () => {
                 value={formData.episode}
                 onChange={handleChange}
               />
-              <label htmlFor="premium">Premium</label>
-              <input
-                type="text"
-                name="premium"
-                id="premium"
-                placeholder="Masukkan episode film"
-                className="border border-gray-300 rounded-md p-2"
-                value={formData.premium}
-                onChange={handleChange}
-              />
+              <label>Premium</label>
+              <div className="flex gap-4">
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    name="premium"
+                    value="true"
+                    checked={formData.premium === "true"}
+                    onChange={handleChange}
+                  />
+                  <span className="ml-2">Yes</span>
+                </label>
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    name="premium"
+                    value="false"
+                    checked={formData.premium === "false"}
+                    onChange={handleChange}
+                  />
+                  <span className="ml-2">No</span>
+                </label>
+              </div>
+
               <label htmlFor="tag">Tag</label>
               <input
                 type="text"
@@ -171,14 +249,14 @@ const AdminPanel = () => {
                   <td className="p-3">{movie.image}</td>
                   <td className="p-3">
                     <div className="flex items-start">
-                      <button>
+                      <button onClick={() => handleUpdate(movie)}>
                         <img
                           src="assets/icons/pencil-1.svg"
                           alt=""
                           className="border border-black text-white p-2 rounded mr-2 hover:bg-blue-500 hover:border-blue-500"
                         />
                       </button>
-                      <button>
+                      <button onClick={() => handleDelete(movie.id)}>
                         <img
                           src="assets/icons/trash.svg"
                           alt=""
