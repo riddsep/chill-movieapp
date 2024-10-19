@@ -1,21 +1,15 @@
 import Carousel from "../Carousel";
-import { Fragment, useEffect, useState } from "react";
-import { getMovies } from "../../services/api/movies-api-endpoints";
+import { Fragment, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovies } from "../../redux/moviesSlice";
 const Continues = () => {
-  const [films, setFilms] = useState([]);
-  async function fetchMovies() {
-    try {
-      const result = await getMovies();
-      setFilms(result);
-    } catch (error) {
-      console.error("Error fetching movies:", error);
-    }
-  }
+  const dispatch = useDispatch();
+  const { movies } = useSelector((state) => state.movies);
   useEffect(() => {
-    fetchMovies();
-  }, []);
+    dispatch(fetchMovies());
+  }, [dispatch]);
 
-  const filmList = films.map((data) => {
+  const filmList = movies.map((data) => {
     return (
       <Fragment key={data.id}>
         <div className="flex basis-[309px] h-40 lg:h-48 lg:basis-[326px] shrink-0 relative">
