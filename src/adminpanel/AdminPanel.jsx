@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  getMovies,
+  fetchMovies,
   insertMovie,
-  deleteMovie,
   updateMovie,
-} from "../services/api/movies-api-endpoints";
+  deleteMovie,
+} from "../redux/moviesSlice";
 import { useNavigate } from "react-router-dom";
 
 const AdminPanel = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { movies, loading } = useSelector((state) => state.movies);
+
   const [add, setAdd] = useState(false);
   const [formData, setFormData] = useState({
     id: null,
@@ -19,98 +23,60 @@ const AdminPanel = () => {
     tag: "",
   });
 
-  const [moviesData, setMoviesData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    dispatch(fetchMovies());
+  }, [dispatch]);
 
-  function handleChange(event) {
+  const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  }
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
-  async function handleDelete(id) {
-    if (confirm("Are you sure you want to delete this movie?")) {
-      await deleteMovie(id);
-      const macthingItem = moviesData.filter(
-        (movieData) => movieData.id !== id
-      );
-      setMoviesData(macthingItem);
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this movie?")) {
+      await dispatch(deleteMovie(id));
     }
-  }
-  function handleUpdate(movie) {
+  };
+
+  const handleUpdate = (movie) => {
     setAdd(true);
     setFormData({
       id: movie.id,
       title: movie.title,
       type: movie.type,
-      episode: movie.episode === null ? 0 : movie.episode,
+      episode: movie.episode ?? 0,
       premium: movie.premium ? "true" : "false",
       tag: movie.tag.join(", "),
     });
-  }
+  };
 
-  async function handleSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      if (
-        !formData.title ||
-        !formData.type ||
-        !formData.tag ||
-        !formData.premium
-      ) {
-        alert("Semua data harus diisi.");
-        return;
-      }
+    const movieData = {
+      ...formData,
+      episode: formData.episode === 0 ? null : formData.episode,
+      premium: formData.premium === "true",
+      tag: formData.tag.split(",").map((t) => t.trim()),
+    };
 
-      const movieData = {
-        ...formData,
-        episode: formData.episode === 0 ? null : formData.episode,
-        premium: formData.premium === "true",
-        tag: formData.tag.split(",").map((tag) => tag.trim()),
-      };
-
-      if (formData.id) {
-        await updateMovie(movieData);
-        alert("Film berhasil diperbarui.");
-      } else {
-        await insertMovie(movieData);
-        alert("Film berhasil ditambahkan.");
-      }
-
-      setFormData({
-        id: null,
-        title: "",
-        type: "",
-        episode: 0,
-        premium: "",
-        tag: "",
-      });
-
-      await fetchMovies();
-    } catch (error) {
-      console.error("Error adding or updating movie:", error);
-      alert("Gagal menambahkan atau memperbarui film. Silakan coba lagi.");
+    if (formData.id) {
+      await dispatch(updateMovie(movieData));
+      alert("Film berhasil diperbarui.");
+    } else {
+      await dispatch(insertMovie(movieData));
+      alert("Film berhasil ditambahkan.");
     }
-  }
 
-  async function fetchMovies() {
-    try {
-      setLoading(true);
-      const result = await getMovies();
-      setMoviesData(result);
-    } catch (error) {
-      console.error("Error fetching movies:", error);
-      alert("Gagal mengambil data film. Silakan coba lagi nanti.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    fetchMovies();
-  }, []);
+    setFormData({
+      id: null,
+      title: "",
+      type: "",
+      episode: 0,
+      premium: "",
+      tag: "",
+    });
+    setAdd(false);
+  };
 
   return (
     <section>
@@ -239,7 +205,7 @@ const AdminPanel = () => {
           </thead>
           <tbody>
             {!loading &&
-              moviesData.map((movie) => (
+              movies.map((movie) => (
                 <tr className="odd:bg-white even:bg-zinc-100" key={movie.id}>
                   <td className="p-3">{movie.id}</td>
                   <td className="p-3">{movie.title}</td>
